@@ -9,7 +9,7 @@ export interface Location {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class WeatherService {
@@ -38,7 +38,7 @@ export class WeatherService {
     return this.http.get<any>(`${this.apiRoot}forecast/${this.initialQuery}&q=${location.city},${location.country}`)
       .pipe(
         retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
+        catchError(this.handleError), // then handle the error
       );
   }
 
@@ -46,7 +46,7 @@ export class WeatherService {
     return this.http.get<any>(`${this.apiRoot}weather/${this.initialQuery}&q=${location.city},${location.country}`)
       .pipe(
         retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
+        catchError(this.handleError), // then handle the error
       );
   }
 

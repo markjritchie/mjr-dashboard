@@ -32,7 +32,7 @@ export class WeatherComponent implements OnInit {
       error => {
         // this.toast.addToast(error, 'Problem getting the weather.');
         this.weather = undefined;
-      }
+      },
     );
     this.weatherService.getForcast(this.location).subscribe(
       weather => {
@@ -42,7 +42,7 @@ export class WeatherComponent implements OnInit {
       error => {
         // this.toast.addToast(error, 'Problem getting the weather.');
         this.forcast = undefined;
-      }
+      },
     );
   }
 
@@ -51,13 +51,13 @@ export class WeatherComponent implements OnInit {
     return {
       city: {
         name: weatherDto.name,
-        population: 0
+        population: 0,
       },
       day: 'mon',
       temp: weatherDto.main.temp,
       min: weatherDto.main.temp_min,
       max: weatherDto.main.temp_max,
-      humidity: weatherDto.main.humidity
+      humidity: weatherDto.main.humidity,
     };
   }
 
@@ -65,9 +65,9 @@ export class WeatherComponent implements OnInit {
     return {
       city: {
         name: forecastDto.city.name,
-        population: forecastDto.city.population
+        population: forecastDto.city.population,
       },
-      days: this.mapToDays(forecastDto).slice(0, 4)
+      days: this.mapToDays(forecastDto).slice(0, 4),
     };
   }
 
@@ -89,7 +89,7 @@ export class WeatherComponent implements OnInit {
           min: element.main.temp,
           max: element.main.temp,
           description: element.weather[0].description,
-          icon: element.weather[0].icon
+          icon: element.weather[0].icon,
         };
         days.push(day);
       } else {
