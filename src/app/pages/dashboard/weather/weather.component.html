@@ -1,15 +1,15 @@
 <nb-card size="medium">
-  <nb-card-body>
+  <nb-card-body *ngIf="weather">
     <div class="location">
-      <span>New York</span>
+      <span >{{weather.city.name}}</span>
     </div>
     <div class="date">
-      <span>Mon 29 May</span>
+      <span>{{dateCaption}}</span>
     </div>
     <div class="daily-forecast">
       <div class="info">
         <div class="temperature">
-          <span>20&deg;</span>
+          <span>{{weather.temp}}&deg;</span>
         </div>
         <div class="icon">
           <i class="ion-ios-sunny-outline"></i>
@@ -18,11 +18,11 @@
       <div class="details">
         <div class="parameter">
           <span class="parameter-name">max</span>
-          <span class="parameter-value">23&deg;</span>
+          <span class="parameter-value">{{weather.max}}&deg;</span>
         </div>
         <div class="parameter">
           <span class="parameter-name">min</span>
-          <span class="parameter-value">19&deg;</span>
+          <span class="parameter-value">{{weather.min}}&deg;</span>
         </div>
         <div class="parameter">
           <span class="parameter-name">wind</span>
@@ -30,7 +30,7 @@
         </div>
         <div class="parameter">
           <span class="parameter-name">hum</span>
-          <span class="parameter-value">87%</span>
+          <span class="parameter-value">{{weather.humidity}}%</span>
         </div>
       </div>
     </div>
