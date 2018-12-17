@@ -1,4 +1,4 @@
-import { ForecastDay } from "./forecast-day";
+import { ForecastDay } from './forecast-day';
 
 export interface Forecast {
   city: { name: string; population: number };

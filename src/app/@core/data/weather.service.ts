@@ -14,9 +14,8 @@ export interface Location {
 
 export class WeatherService {
 
-  private apiRoot = 'https://api.openweathermap.org/data/2.5/'
-  private initialQuery = '?appid=3f0bedb111e1607e4787c5725cbd7cf8&units=metric'
-  // private apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?appid=3f0bedb111e1607e4787c5725cbd7cf8&units=metric';
+  private apiRoot = 'https://api.openweathermap.org/data/2.5/';
+  private initialQuery = '?appid=3f0bedb111e1607e4787c5725cbd7cf8&units=metric';
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {

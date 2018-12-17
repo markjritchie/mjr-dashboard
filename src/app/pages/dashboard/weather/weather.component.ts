@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../../@core/data/weather.service';
-import { ToasterService } from 'angular2-toaster';
+// import { ToasterService } from 'angular2-toaster';
 import { Location } from './location';
 import { Weather, Forecast } from './weather';
 import { ForecastDay } from './forecast-day';
@@ -9,14 +9,14 @@ import * as moment from 'moment';
 @Component({
   selector: 'ngx-weather',
   styleUrls: ['./weather.component.scss'],
-  templateUrl: './weather.component.html'
+  templateUrl: './weather.component.html',
 })
 export class WeatherComponent implements OnInit {
   location: Location = { city: 'Edinburgh', country: 'uk'};
 
   weather: Weather;
   forcast: Forecast;
-  dateCaption = moment().format('ddd Do MMM')
+  dateCaption = moment().format('ddd Do MMM');
 
   constructor(
     private weatherService: WeatherService,
@@ -27,20 +27,20 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getCurrent(this.location).subscribe(
       weather => {
         this.weather = this.mapWeather(weather);
-        console.log(weather);
+        // console.log(weather);
       },
       error => {
-        //this.toast.addToast(error, 'Problem getting the weather.');
+        // this.toast.addToast(error, 'Problem getting the weather.');
         this.weather = undefined;
       }
     );
     this.weatherService.getForcast(this.location).subscribe(
       weather => {
         this.forcast = this.mapForecast(weather);
-        console.log(weather);
+        // console.log(weather);
       },
       error => {
-        //this.toast.addToast(error, 'Problem getting the weather.');
+        // this.toast.addToast(error, 'Problem getting the weather.');
         this.forcast = undefined;
       }
     );
